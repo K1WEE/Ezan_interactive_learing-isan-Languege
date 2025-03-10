@@ -30,7 +30,7 @@ function getCookie(name) {
 // fecth json api 
 async function fetchQuestions() {
     try {
-        const response = await fetch('http://127.0.0.1:8000/api/questions/level/1/?format=json');
+        const response = await fetch('https://ezan-ezan.up.railway.app/api/questions/level/1/?format=json');
         const data = await response.json();
         questions = data;
 
