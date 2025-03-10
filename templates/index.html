@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block extra_css %}<link href="{% static "/css/index.css" %}" rel="stylesheet">{% endblock extra_css %}
+{% block title %}Welcome to EZan{% endblock title %}
+
+{% block content %}<div class="welcome-container">
+    <div class="logo-container">
+        <a href="/" class="logo">
+            <img src="{% static "images/logo2.png" %}" alt="Ezan Logo">
+            <span class="logo-text">EZan</span>
+        </a>
+    </div>
+
+    <div class="content-container">
+        <div class="illustration">
+            <img src="{% static "images/2nokseditedpng.png" %}" alt="Welcome Logo">
+        </div>
+
+        <div class="content-right">
+            <h1 class="welcome-title">Are you ready to learn more about Isan?</h1>
+
+            <div class="welcome-buttons">
+                <a href="{% url "register" %}" class="btn btn-primary">GET STARTED</a>
+                <a href="{% url "login" %}" class="btn btn-secondary">I ALREADY HAVE AN ACCOUNT</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
