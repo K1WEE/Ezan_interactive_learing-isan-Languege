@@ -89,7 +89,11 @@ WSGI_APPLICATION = 'ezan_project.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 # สำหรับการเผยแพร่บน Railway
-if os.environ.get('ENVIRONMENT') == 'production':
+# Database
+# https://docs.djangoproject.com/en/5.1/ref/settings/#databases
+
+# ตรวจสอบว่ามี DATABASE_URL หรือไม่
+if os.environ.get('DATABASE_URL'):
     # ใช้ DATABASE_URL โดยตรง
     DATABASES = {
         'default': dj_database_url.config(
@@ -97,7 +101,6 @@ if os.environ.get('ENVIRONMENT') == 'production':
             conn_max_age=600
         )
     }
-# สำหรับการพัฒนาในเครื่อง
 else:
     # ใช้ตัวแปรสภาพแวดล้อมแต่ละตัว
     DATABASES = {
@@ -111,7 +114,6 @@ else:
             'CONN_MAX_AGE': int(os.environ.get('DB_CONN_MAX_AGE', 600)),
         }
     }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -148,10 +150,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'  # เพิ่มบรรทัดนี้
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
-STATICSTORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
