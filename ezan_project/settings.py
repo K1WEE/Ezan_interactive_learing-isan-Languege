@@ -51,7 +51,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # ต้องอยู่หลัง SecurityMiddleware
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -142,8 +142,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
-STATIC_ROOT = BASE_DIR / "staticfiles"  # สำหรับรวมไฟล์ static เมื่อรัน collectstatic
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'  # แก้ไขจาก STATICSTORAGE เป็น STATICFILES_STORAGE
+STATIC_ROOT = BASE_DIR / "staticfiles"
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'  # เปลี่ยนเป็น CompressedStaticFilesStorage ซึ่งเรียบง่ายกว่า
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -157,7 +157,7 @@ LOGIN_URL = 'login'
 
 # Media files (uploads)
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / "media"  # เพิ่ม MEDIA_ROOT
+MEDIA_ROOT = BASE_DIR / "media"
 
 # REST Framework Settings
 REST_FRAMEWORK = {
@@ -176,7 +176,7 @@ REST_FRAMEWORK = {
 }
 
 # สำหรับ Railway CSRF_TRUSTED_ORIGINS
-CSRF_TRUSTED_ORIGINS= ["https://ezan-ezan.up.railway.app"]
+CSRF_TRUSTED_ORIGINS = ["https://ezan-ezan.up.railway.app"]
 
 # เพิ่มการตั้งค่าความปลอดภัย
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
