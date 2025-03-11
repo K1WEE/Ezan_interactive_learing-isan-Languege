@@ -211,4 +211,14 @@ SOCIAL_AUTH_PIPELINE = (
     'users.pipeline.set_user_first_name',  # Pipeline ที่เราจะสร้างเอง
 )
 
+# เพิ่มหาก SOCIAL_AUTH_REDIRECT_IS_HTTPS ยังไม่มี
+SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
+
+# กำหนด callback URL แบบชัดเจน
+SOCIAL_AUTH_GOOGLE_OAUTH2_REDIRECT_URI = 'https://ezan-ezan.up.railway.app/social-auth/complete/google-oauth2/'
+
+
+
+
+
 CSRF_TRUSTED_ORIGINS = ['https://ezan-ezan.up.railway.app']
