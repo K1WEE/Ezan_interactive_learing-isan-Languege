@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
+<link href="{% static "css/level.css" %}" rel="stylesheet">
+
+{% endblock extra_css %}
+
+{% block title %}
+Beginner Stage: Level 1 {{user}}
+{% endblock title %}
+
+{% block content %}
+<div class="app">
+    <div class="question-count"></div>
+    <div class="progress-container">
+        <div class="progress-bar"></div>
+    </div>
+    <h1 id="quiz-header"></h1>
+    <div class="quiz">
+        <h2 id="question"></h2>
+        <div id="answer-btns">
+            <div class="loader-container">
+                <div class="loader"></div>
+            </div>
+            {% comment %} Buttons will be added here by JavaScript {% endcomment %}
+        </div>
+        <button id="next-btn"></button>
+    </div>
+</div>
+{% endblock content %}
+
+{% block extra_js %}
+<script>
+    window.playerName = "{{ user.username }}";
+    window.URLS = "{% url "home" %}";
+</script>
+
+<script src="{% static "js/level.js" %}"></script>
+
+{% endblock extra_js %}

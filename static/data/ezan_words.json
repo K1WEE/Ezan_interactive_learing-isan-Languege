@@ -1,0 +1,1003 @@
+[
+    {
+        "Category": "Noun",
+        "Word": "กะโพก",
+        "Pronunciation": "Ka phok",
+        "Thai": "ประทัด",
+        "Eng": "Fireworks"
+    },
+    {
+        "Category": "Noun",
+        "Word": "เฮือน",
+        "Pronunciation": "Huan",
+        "Thai": "บ้าน",
+        "Eng": "House"
+    },
+    {
+        "Category": "Noun",
+        "Word": "ตะเว็น",
+        "Pronunciation": "Ta wen",
+        "Thai": "พระอาทิตย์",
+        "Eng": "The sun"
+    },
+    {
+        "Category": "Noun",
+        "Word": "อีเกิ้ง",
+        "Pronunciation": "E kerng",
+        "Thai": "ดวงจันทร์",
+        "Eng": "The moon"
+    },
+    {
+        "Category": "Noun",
+        "Word": "แข่ว",
+        "Pronunciation": "Khaeo",
+        "Thai": "ฟัน",
+        "Eng": "Teeth"
+    },
+    {
+        "Category": "Noun",
+        "Word": "คาวหน่า",
+        "Pronunciation": "Khao na",
+        "Thai": "คราวหน้า",
+        "Eng": "Next time"
+    },
+    {
+        "Category": "Noun",
+        "Word": "คาวหลัง",
+        "Pronunciation": "Khao lang",
+        "Thai": "คราวหลัง",
+        "Eng": "Next time"
+    },
+    {
+        "Category": "Noun",
+        "Word": "คิง",
+        "Pronunciation": "Khing",
+        "Thai": "ร่างกาย, ตัว",
+        "Eng": "Body"
+    },
+    {
+        "Category": "Noun",
+        "Word": "คำเว้า",
+        "Pronunciation": "Kham Wao",
+        "Thai": "คำพูด",
+        "Eng": "Speech"
+    },
+    {
+        "Category": "Noun",
+        "Word": "ดัง",
+        "Pronunciation": "Dang",
+        "Thai": "จมูก",
+        "Eng": "Nose"
+    },
+    {
+        "Category": "Noun",
+        "Word": "ท่งนา",
+        "Pronunciation": "Thong na",
+        "Thai": "ทุ่งนา",
+        "Eng": "Paddy field"
+    },
+    {
+        "Category": "Noun",
+        "Word": "เทื่อ",
+        "Pronunciation": "Thua",
+        "Thai": "ครั้ง",
+        "Eng": "Time"
+    },
+    {
+        "Category": "Noun",
+        "Word": "บ่แม่น",
+        "Pronunciation": "Bo man",
+        "Thai": "ไม่ใช่",
+        "Eng": "No"
+    },
+    {
+        "Category": "Noun",
+        "Word": "แม่น",
+        "Pronunciation": "Man",
+        "Thai": "ใช่",
+        "Eng": "Yes"
+    },
+    {
+        "Category": "Pronoun",
+        "Word": "อ้าย",
+        "Pronunciation": "Ai",
+        "Thai": "พี่ชาย",
+        "Eng": "Older brother"
+    },
+    {
+        "Category": "Pronoun",
+        "Word": "เอื้อย",
+        "Pronunciation": "Ueai",
+        "Thai": "พี่สาว",
+        "Eng": "Older sister"
+    },
+    {
+        "Category": "Pronoun",
+        "Word": "ข่อย",
+        "Pronunciation": "Khoi",
+        "Thai": "ฉัน, ผม ",
+        "Eng": "I, Me"
+    },
+    {
+        "Category": "Pronoun",
+        "Word": "ไผ",
+        "Pronunciation": "Phai",
+        "Thai": "ใคร",
+        "Eng": "Who"
+    },
+    {
+        "Category": "Pronoun",
+        "Word": "เจ้า",
+        "Pronunciation": "Chao",
+        "Thai": "เธอ, คุณ",
+        "Eng": "You"
+    },
+    {
+        "Category": "Pronoun",
+        "Word": "เพิ่น",
+        "Pronunciation": "Phoen",
+        "Thai": "เขา",
+        "Eng": "Him, Her"
+    },
+    {
+        "Category": "Pronoun",
+        "Word": "คะเจ้า",
+        "Pronunciation": "Ka chao",
+        "Thai": "เขา",
+        "Eng": "Him. Her"
+    },
+    {
+        "Category": "Pronoun",
+        "Word": "โต",
+        "Pronunciation": "To",
+        "Thai": "คุณ",
+        "Eng": "You"
+    },
+    {
+        "Category": "Verb",
+        "Word": "ฮ้อน",
+        "Pronunciation": "Hon",
+        "Thai": "ร้อน",
+        "Eng": "Hot"
+    },
+    {
+        "Category": "Verb",
+        "Word": "เกี่ย",
+        "Pronunciation": "Kiea",
+        "Thai": "อุ้ม, แบก",
+        "Eng": "Carry"
+    },
+    {
+        "Category": "Verb",
+        "Word": "เมือ",
+        "Pronunciation": "Muea",
+        "Thai": "กลับ",
+        "Eng": "Go back"
+    },
+    {
+        "Category": "Verb",
+        "Word": "เกิ่ง",
+        "Pronunciation": "Koeng",
+        "Thai": "เท่ากัน",
+        "Eng": "Equal"
+    },
+    {
+        "Category": "Verb",
+        "Word": "เขย",
+        "Pronunciation": "Khoei",
+        "Thai": "แกะ, เปิด",
+        "Eng": "Unpack, Unwrap"
+    },
+    {
+        "Category": "Verb",
+        "Word": "ซูนคิง",
+        "Pronunciation": "Sun khing",
+        "Thai": "สัมผัสร่างกาย",
+        "Eng": "Touch "
+    },
+    {
+        "Category": "Verb",
+        "Word": "ขนคิงลุก",
+        "Pronunciation": "Kon khing luk",
+        "Thai": "ขนลุก",
+        "Eng": "Goosebump"
+    },
+    {
+        "Category": "Verb",
+        "Word": "ขวง",
+        "Pronunciation": "Khuang",
+        "Thai": "ขวาง",
+        "Eng": "Block"
+    },
+    {
+        "Category": "Verb",
+        "Word": "สูน",
+        "Pronunciation": "Sun",
+        "Thai": "โกรธ, โมโห",
+        "Eng": "Angry"
+    },
+    {
+        "Category": "Verb",
+        "Word": "คึดฮอด",
+        "Pronunciation": "Khud hod",
+        "Thai": "คิดถึง",
+        "Eng": "Miss, Think of"
+    },
+    {
+        "Category": "Verb",
+        "Word": "ม่วน",
+        "Pronunciation": "Muan",
+        "Thai": "สนุก",
+        "Eng": "Enjoy"
+    },
+    {
+        "Category": "Verb",
+        "Word": "เบิด",
+        "Pronunciation": "Boed",
+        "Thai": "หมด",
+        "Eng": "Deplete"
+    },
+    {
+        "Category": "Verb",
+        "Word": "เหมิด",
+        "Pronunciation": "Moed",
+        "Thai": "หมด",
+        "Eng": "Deplete"
+    },
+    {
+        "Category": "Verb",
+        "Word": "ออนซอน",
+        "Pronunciation": "On son",
+        "Thai": "ชื่นชม, ยินดี, สนใจ",
+        "Eng": "Be pleased, Care "
+    },
+    {
+        "Category": "Verb",
+        "Word": "สะออน",
+        "Pronunciation": "Sa on",
+        "Thai": "ปลื้ม, สนใจ",
+        "Eng": "Be pleased, Care "
+    },
+    {
+        "Category": "Verb",
+        "Word": "งึด",
+        "Pronunciation": "Ngued",
+        "Thai": "แปลกใจ, ประหลาดใจ",
+        "Eng": "Surprised, Shocked"
+    },
+    {
+        "Category": "Verb",
+        "Word": "ฮ่าง",
+        "Pronunciation": "Hang",
+        "Thai": "พัง",
+        "Eng": "Broken"
+    },
+    {
+        "Category": "Verb",
+        "Word": "ข่วม",
+        "Pronunciation": "Khuam",
+        "Thai": "ข้าม",
+        "Eng": "Cross"
+    },
+    {
+        "Category": "Verb",
+        "Word": "ย้าน",
+        "Pronunciation": "Yan",
+        "Thai": "กลัว",
+        "Eng": "Afraid"
+    },
+    {
+        "Category": "Verb",
+        "Word": "ขี้ค้าน",
+        "Pronunciation": "Khi khan",
+        "Thai": "ขี้เกียจ",
+        "Eng": "Lazy"
+    },
+    {
+        "Category": "Verb",
+        "Word": "ขี้เดียด",
+        "Pronunciation": "Khi diad",
+        "Thai": "รังเกียจ",
+        "Eng": "Disgust"
+    },
+    {
+        "Category": "Verb",
+        "Word": "ย้อง",
+        "Pronunciation": "Yong",
+        "Thai": "ยกย่อง",
+        "Eng": "Praise"
+    },
+    {
+        "Category": "Verb",
+        "Word": "เข่า",
+        "Pronunciation": "Khao",
+        "Thai": "เข้า",
+        "Eng": "Enter"
+    },
+    {
+        "Category": "Verb",
+        "Word": "ฮ้าย",
+        "Pronunciation": "Hai",
+        "Thai": "ดุ, ด่า",
+        "Eng": "Scold"
+    },
+    {
+        "Category": "Verb",
+        "Word": "คอย",
+        "Pronunciation": "Khoi",
+        "Thai": "รอ",
+        "Eng": "Wait"
+    },
+    {
+        "Category": "Verb",
+        "Word": "ฮัก",
+        "Pronunciation": "Hak",
+        "Thai": "รัก",
+        "Eng": "Love"
+    },
+    {
+        "Category": "Verb",
+        "Word": "แลน",
+        "Pronunciation": "Lan",
+        "Thai": "วิ่ง",
+        "Eng": "Run"
+    },
+    {
+        "Category": "Verb",
+        "Word": "หนหวย",
+        "Pronunciation": "Hon huai",
+        "Thai": "รำคาญ, หงุดหงิด",
+        "Eng": "Irritate, Annoy"
+    },
+    {
+        "Category": "Verb",
+        "Word": "สิ",
+        "Pronunciation": "Si",
+        "Thai": "จะ",
+        "Eng": "Will"
+    },
+    {
+        "Category": "Verb",
+        "Word": "มัก",
+        "Pronunciation": "Mak",
+        "Thai": "รัก, ชอบ",
+        "Eng": "Love, Like"
+    },
+    {
+        "Category": "Verb",
+        "Word": "คึดพ้อ",
+        "Pronunciation": "Khud Pho",
+        "Thai": "นึกถึง, นึกขึ้นได้",
+        "Eng": "Recall, Realize"
+    },
+    {
+        "Category": "Verb",
+        "Word": "เบิ่ง",
+        "Pronunciation": "Boeng",
+        "Thai": "ดู",
+        "Eng": "See, Look"
+    },
+    {
+        "Category": "Verb",
+        "Word": "เว้า",
+        "Pronunciation": "Wao yai",
+        "Thai": "พูด",
+        "Eng": "Say"
+    },
+    {
+        "Category": "Verb",
+        "Word": "เว้าใหญ่",
+        "Pronunciation": "Wao",
+        "Thai": "พูดโอ้อวด",
+        "Eng": "Boast"
+    },
+    {
+        "Category": "Verb",
+        "Word": "ถ่า",
+        "Pronunciation": "Tha",
+        "Thai": "รอ",
+        "Eng": "Wait"
+    },
+    {
+        "Category": "Verb",
+        "Word": "หัวซา",
+        "Pronunciation": "Hua sa",
+        "Thai": "สนใจ",
+        "Eng": "Care"
+    },
+    {
+        "Category": "Verb",
+        "Word": "ซัง",
+        "Pronunciation": "Sang",
+        "Thai": "เกลียด, ชัง",
+        "Eng": "Hate"
+    },
+    {
+        "Category": "Verb",
+        "Word": "ซอด",
+        "Pronunciation": "Sod",
+        "Thai": "ทะลุ",
+        "Eng": "Through"
+    },
+    {
+        "Category": "Verb",
+        "Word": "ซอย",
+        "Pronunciation": "Soi",
+        "Thai": "ช่วย",
+        "Eng": "Help"
+    },
+    {
+        "Category": "Verb",
+        "Word": "ติง",
+        "Pronunciation": "Ting",
+        "Thai": "ขยับตัว",
+        "Eng": "Move"
+    },
+    {
+        "Category": "Verb",
+        "Word": "ถิ่ม",
+        "Pronunciation": "Thim",
+        "Thai": "ทิ้ง",
+        "Eng": "Throw away"
+    },
+    {
+        "Category": "Verb",
+        "Word": "ปาก",
+        "Pronunciation": "Pak",
+        "Thai": "พูด",
+        "Eng": "Say"
+    },
+    {
+        "Category": "Verb",
+        "Word": "แล้ว",
+        "Pronunciation": "Leao",
+        "Thai": "เสร็จ, จบ",
+        "Eng": "Done, Finish"
+    },
+    {
+        "Category": "Verb",
+        "Word": "พ้อ",
+        "Pronunciation": "Pho",
+        "Thai": "พบ",
+        "Eng": "Meet, Find"
+    },
+    {
+        "Category": "Verb",
+        "Word": "ฟ้าว",
+        "Pronunciation": "Fao",
+        "Thai": "รีบ",
+        "Eng": "Hurry"
+    },
+    {
+        "Category": "Adverb",
+        "Word": "กะด้อกะเดี้ย",
+        "Pronunciation": "Ka dor ka dia",
+        "Thai": "มากเกินพอดี",
+        "Eng": "Too much/Too many"
+    },
+    {
+        "Category": "Adverb",
+        "Word": "หลาย",
+        "Pronunciation": "Lai",
+        "Thai": "มาก",
+        "Eng": "Much/Many"
+    },
+    {
+        "Category": "Adverb",
+        "Word": "คือกัน",
+        "Pronunciation": "khue kan",
+        "Thai": "เหมือนกัน",
+        "Eng": "Same"
+    },
+    {
+        "Category": "Adverb",
+        "Word": "อีหลี",
+        "Pronunciation": "E li",
+        "Thai": "จริง",
+        "Eng": "Really"
+    },
+    {
+        "Category": "Adverb",
+        "Word": "ไส",
+        "Pronunciation": "Sai",
+        "Thai": "ไหน",
+        "Eng": "Where"
+    },
+    {
+        "Category": "Adverb",
+        "Word": "คอย",
+        "Pronunciation": "Khoi",
+        "Thai": "เบาๆ",
+        "Eng": "Quietly"
+    },
+    {
+        "Category": "Adverb",
+        "Word": "คาวเดียว",
+        "Pronunciation": "Khao diao",
+        "Thai": "แป๊บเดียว, สักครู่",
+        "Eng": "Awhile"
+    },
+    {
+        "Category": "Adverb",
+        "Word": "ซือๆ",
+        "Pronunciation": "Sue sue",
+        "Thai": "เฉยๆ",
+        "Eng": "Merely"
+    },
+    {
+        "Category": "Adverb",
+        "Word": "ดู๋",
+        "Pronunciation": "Du",
+        "Thai": "บ่อย",
+        "Eng": "Frequently"
+    },
+    {
+        "Category": "Adverb",
+        "Word": "พี้",
+        "Pronunciation": "Phi",
+        "Thai": "นี้",
+        "Eng": "Here"
+    },
+    {
+        "Category": "Adjective",
+        "Word": "ถืก",
+        "Pronunciation": "Thuk",
+        "Thai": "ราคาถูก, ถูกต้อง",
+        "Eng": "Correct, Cheap"
+    },
+    {
+        "Category": "Adjective",
+        "Word": "ก่ำก่า",
+        "Pronunciation": "Kam ka",
+        "Thai": "ทำอะไรเป็นได้แค่พอทำได้ ไม่ชำนาญ",
+        "Eng": "So-so"
+    },
+    {
+        "Category": "Adjective",
+        "Word": "กุย",
+        "Pronunciation": "Kui",
+        "Thai": "เหม็น",
+        "Eng": "Stinking"
+    },
+    {
+        "Category": "Adjective",
+        "Word": "ตาฮัก",
+        "Pronunciation": "Ta hak",
+        "Thai": "น่ารัก",
+        "Eng": "Cute"
+    },
+    {
+        "Category": "Adjective",
+        "Word": "สะออน",
+        "Pronunciation": "Sa on",
+        "Thai": "น่าชื่นชมยินดี, น่ารัก",
+        "Eng": "Be pleased, Cute"
+    },
+    {
+        "Category": "Adjective",
+        "Word": "ออนซอน ",
+        "Pronunciation": "On son",
+        "Thai": "น่าชื่นชมยินดี, น่ารัก",
+        "Eng": "Be pleased, Cute"
+    },
+    {
+        "Category": "Adjective",
+        "Word": "งึด",
+        "Pronunciation": "Ngued",
+        "Thai": "น่าประหลาดใจ, คาดไม่ถึง",
+        "Eng": "Surprised, Unexpected"
+    },
+    {
+        "Category": "Adjective",
+        "Word": "ขี้ล่าย",
+        "Pronunciation": "Khi lai",
+        "Thai": "ขี้เหร่",
+        "Eng": "Ugly"
+    },
+    {
+        "Category": "Adjective",
+        "Word": "ฮ้าย",
+        "Pronunciation": "Hai",
+        "Thai": "ชั่ว, ไม่ดี",
+        "Eng": "Bad, Ugly"
+    },
+    {
+        "Category": "Adjective",
+        "Word": "ขี้ถี่",
+        "Pronunciation": "Khi thi",
+        "Thai": "ขี้เหนียว",
+        "Eng": "Stingy"
+    },
+    {
+        "Category": "Adjective",
+        "Word": "คำเเพง",
+        "Pronunciation": "kham pang",
+        "Thai": "ผู้ซึ่งเป็นที่รัก",
+        "Eng": "Beloved, Precious"
+    },
+    {
+        "Category": "Adjective",
+        "Word": "สำบาย",
+        "Pronunciation": "Sam bai",
+        "Thai": "สบาย",
+        "Eng": "Comfortable"
+    },
+    {
+        "Category": "Adjective",
+        "Word": "โดน",
+        "Pronunciation": "Don",
+        "Thai": "โดน",
+        "Eng": "Long(time)"
+    },
+    {
+        "Category": "Adjective",
+        "Word": "บ่อึดบ่อยาก",
+        "Pronunciation": "Bo eud Bo yak",
+        "Thai": "มีมากมาย, ไม่ขาดแคลน",
+        "Eng": "Abundant"
+    },
+    {
+        "Category": "Conjunction",
+        "Word": "กะย้อน",
+        "Pronunciation": "Ka yon",
+        "Thai": "เพราะว่า ",
+        "Eng": "Because"
+    },
+    {
+        "Category": "Conjunction",
+        "Word": "คัน",
+        "Pronunciation": "Khan",
+        "Thai": "ถ้า",
+        "Eng": "If"
+    },
+    {
+        "Category": "Phrase",
+        "Word": "กะซาง",
+        "Pronunciation": "Ka sang",
+        "Thai": "ช่างเถอะ",
+        "Eng": "Forget it"
+    },
+    {
+        "Category": "Phrase",
+        "Word": "บ่เป็นหยัง",
+        "Pronunciation": "Bo pen yang",
+        "Thai": "ไม่เป็นอะไร",
+        "Eng": "Never mind"
+    },
+    {
+        "Category": "Preposition",
+        "Word": "หม่อง",
+        "Pronunciation": "Mong",
+        "Thai": "ที่, บริเวณ",
+        "Eng": "At"
+    },
+    {
+        "Category": "Preposition",
+        "Word": "คือจั่ง",
+        "Pronunciation": "Khue chang",
+        "Thai": "เหมือนดัง",
+        "Eng": "Like "
+    },
+    {
+        "Category": "Time",
+        "Word": "กลางเว็น",
+        "Pronunciation": "Klang wen",
+        "Thai": "กลางวัน",
+        "Eng": "Day"
+    },
+    {
+        "Category": "Time",
+        "Word": "มื้อแลง",
+        "Pronunciation": "Mue laeng",
+        "Thai": "ตอนเย็น",
+        "Eng": "Evening"
+    },
+    {
+        "Category": "Time",
+        "Word": "ยามสวย",
+        "Pronunciation": "Yam suai",
+        "Thai": "ตอนสาย",
+        "Eng": "Late in the morning"
+    },
+    {
+        "Category": "Time",
+        "Word": "ซู่มื้อ",
+        "Pronunciation": "Su mue",
+        "Thai": "ทุกวัน",
+        "Eng": "Everyday"
+    },
+    {
+        "Category": "Clothes",
+        "Word": "เกิบ",
+        "Pronunciation": "Koeb",
+        "Thai": "รองเท้า",
+        "Eng": "Shoes"
+    },
+    {
+        "Category": "Clothes",
+        "Word": "เกิบโบก",
+        "Pronunciation": "Koeb bok",
+        "Thai": "รองเท้าผ้าใบ",
+        "Eng": "Sneakers"
+    },
+    {
+        "Category": "Clothes",
+        "Word": "โสร่ง",
+        "Pronunciation": "Song",
+        "Thai": "กางเกง",
+        "Eng": "Pants"
+    },
+    {
+        "Category": "Plants",
+        "Word": "กกไม้",
+        "Pronunciation": "Kok mai",
+        "Thai": "ต้นไม้",
+        "Eng": "Tree"
+    },
+    {
+        "Category": "Plants",
+        "Word": "บักขาม",
+        "Pronunciation": "bak kam",
+        "Thai": "มะขาม",
+        "Eng": "Tangerine"
+    },
+    {
+        "Category": "Plants",
+        "Word": "กองเฟือง",
+        "Pronunciation": "Kong fueang",
+        "Thai": "กองฟาง",
+        "Eng": "Haystack"
+    },
+    {
+        "Category": "Plants",
+        "Word": "บักหุ่ง",
+        "Pronunciation": "bak hung",
+        "Thai": "มะละกอ",
+        "Eng": "Papaya"
+    },
+    {
+        "Category": "Plants",
+        "Word": "บักกอก",
+        "Pronunciation": "Bak kok",
+        "Thai": "มะกอก",
+        "Eng": "Olive"
+    },
+    {
+        "Category": "Plants",
+        "Word": "บักแตง",
+        "Pronunciation": "Bak tang",
+        "Thai": "แตงกวา",
+        "Eng": "Cucumber"
+    },
+    {
+        "Category": "Plants",
+        "Word": "ผักอีตู่",
+        "Pronunciation": "Phak i tu",
+        "Thai": "ใบแมงลัก",
+        "Eng": "Lemon basil"
+    },
+    {
+        "Category": "Plants",
+        "Word": "ผักอีตู่ไทย",
+        "Pronunciation": "Phak I tu thai",
+        "Thai": "กะเพรา ",
+        "Eng": "Holy basil"
+    },
+    {
+        "Category": "Plants",
+        "Word": "ผักบัวละพา",
+        "Pronunciation": "phak bua la pha",
+        "Thai": "โหระพา",
+        "Eng": "Sweet basil"
+    },
+    {
+        "Category": "Plants",
+        "Word": "ผักสะแงะ",
+        "Pronunciation": "Phak sa ngae",
+        "Thai": "สะระแหน่",
+        "Eng": "Peppermint"
+    },
+    {
+        "Category": "Plants",
+        "Word": "บักน่าว",
+        "Pronunciation": "Bak naw",
+        "Thai": "มะนาว",
+        "Eng": "Lime"
+    },
+    {
+        "Category": "Plants",
+        "Word": "บักเขือส้ม",
+        "Pronunciation": "Bak kuea som",
+        "Thai": "มะเขือเทศ",
+        "Eng": "Tomato"
+    },
+    {
+        "Category": "Plants",
+        "Word": "บักหูด",
+        "Pronunciation": "Bak hud",
+        "Thai": "มะกรูด",
+        "Eng": "Leech lime"
+    },
+    {
+        "Category": "Plants",
+        "Word": "บักอึ",
+        "Pronunciation": "Bak ue",
+        "Thai": "ฟักทอง",
+        "Eng": "Pumpkin"
+    },
+    {
+        "Category": "Plants",
+        "Word": "ถั่วน้อย",
+        "Pronunciation": "Thua noi",
+        "Thai": "ถั่วลันเตา",
+        "Eng": "Green peas"
+    },
+    {
+        "Category": "Plants",
+        "Word": "หอมบั่ว",
+        "Pronunciation": "Hom bua",
+        "Thai": "ต้นหอม",
+        "Eng": "Spring Onion"
+    },
+    {
+        "Category": "Plants",
+        "Word": "หอมเตียม",
+        "Pronunciation": "Hom tiam",
+        "Thai": "กระเทียม",
+        "Eng": "Onion"
+    },
+    {
+        "Category": "Plants",
+        "Word": "บักกะทกล้ก",
+        "Pronunciation": "Bak ka tok lok",
+        "Thai": "เสาวรส",
+        "Eng": "Passion fruit"
+    },
+    {
+        "Category": "Plants",
+        "Word": "บักกะท้อน",
+        "Pronunciation": "Bak ka ton",
+        "Thai": "กระท้อน",
+        "Eng": "Santol"
+    },
+    {
+        "Category": "Plants",
+        "Word": "บักทัน",
+        "Pronunciation": "Bak than",
+        "Thai": "พุทรา",
+        "Eng": "Jujube"
+    },
+    {
+        "Category": "Plants",
+        "Word": "บักเขียบ",
+        "Pronunciation": "Bak Khiab",
+        "Thai": "น้อยหน่า",
+        "Eng": "Sugar apple"
+    },
+    {
+        "Category": "Plants",
+        "Word": "บักพร้าว",
+        "Pronunciation": "Bak phrao",
+        "Thai": "มะพร้าว ",
+        "Eng": "Coconut"
+    },
+    {
+        "Category": "Plants",
+        "Word": "บักแตงโม",
+        "Pronunciation": "Bak tangmo",
+        "Thai": "แตงโม",
+        "Eng": "Watermelon"
+    },
+    {
+        "Category": "Plants",
+        "Word": "บักสีดา",
+        "Pronunciation": "Bak si da",
+        "Thai": "ฝรั่ง ",
+        "Eng": "Guava"
+    },
+    {
+        "Category": "Plants",
+        "Word": "บักนัด",
+        "Pronunciation": "Bak nad",
+        "Thai": "สับปะรด",
+        "Eng": "Pineapple"
+    },
+    {
+        "Category": "Plants",
+        "Word": "บักมี่",
+        "Pronunciation": "Bak mi",
+        "Thai": "ขนุน ",
+        "Eng": "Jackfruit"
+    },
+    {
+        "Category": "Plants",
+        "Word": "บักม่วง",
+        "Pronunciation": "Bak muang",
+        "Thai": "มะม่วง",
+        "Eng": "Mango"
+    },
+    {
+        "Category": "Plants",
+        "Word": "ใน",
+        "Pronunciation": "Nai",
+        "Thai": "เม็ด, เมล็ดพืช",
+        "Eng": "Seed"
+    },
+    {
+        "Category": "Animals",
+        "Word": "กะปอม",
+        "Pronunciation": "Ka pom",
+        "Thai": "กิ้งก่า",
+        "Eng": "Chameleon"
+    },
+    {
+        "Category": "Animals",
+        "Word": "ขี้เกี้ยม",
+        "Pronunciation": "Ki kiam",
+        "Thai": "จิ้งจก",
+        "Eng": "Lizard"
+    },
+    {
+        "Category": "Animals",
+        "Word": "ขี้โก๋",
+        "Pronunciation": "Ki ko",
+        "Thai": "จิ้งเหลน",
+        "Eng": "Skink"
+    },
+    {
+        "Category": "Animals",
+        "Word": "ขี้กะตู่",
+        "Pronunciation": "Ki ka tu",
+        "Thai": "คางคก",
+        "Eng": "Toad"
+    },
+    {
+        "Category": "Animals",
+        "Word": "ขี้เข็บ",
+        "Pronunciation": "Ki keb",
+        "Thai": "ตะขาบ",
+        "Eng": "Centipede"
+    },
+    {
+        "Category": "Animals",
+        "Word": "ขี้ไก่เดือน",
+        "Pronunciation": "Ki kai duean",
+        "Thai": "ไส้เดือน",
+        "Eng": "Earthworm"
+    },
+    {
+        "Category": "Animals",
+        "Word": "แข่",
+        "Pronunciation": "Khae",
+        "Thai": "จระเข้",
+        "Eng": "Crocodile"
+    },
+    {
+        "Category": "Animals",
+        "Word": "งัว",
+        "Pronunciation": "Ngua",
+        "Thai": "วัว",
+        "Eng": "Cow"
+    },
+    {
+        "Category": "Animals",
+        "Word": "กับแก้",
+        "Pronunciation": "Kab Kae",
+        "Thai": "ตุ๊กแก",
+        "Eng": "Gecko"
+    },
+    {
+        "Category": "Animals",
+        "Word": "เผิ่ง",
+        "Pronunciation": "Phoeng",
+        "Thai": "ผึ้ง",
+        "Eng": "Bee"
+    },
+    {
+        "Category": "Utensils",
+        "Word": "กะบ่วง",
+        "Pronunciation": "Ka buang",
+        "Thai": "ช้อน",
+        "Eng": "Spoon"
+    }
+]
