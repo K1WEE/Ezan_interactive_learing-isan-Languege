@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link href="{% static "css/review.css" %}" rel="stylesheet">
+{% endblock extra_css %}
+
+{% block title %}
+Review Incorrect Questions
+{% endblock title %}
+
+{% block content %}
+<div class="app">
+    <h1 id="review-header">Review Incorrect Questions</h1>
+    <div class="level-info">
+        <div class="level-name">Level: <span id="level-name">Loading...</span></div>
+        <div class="level-stats">
+            <div>Score: <span id="level-score">-</span>/<span id="level-max-score">-</span></div>
+            <div>Percentage: <span id="level-percentage">-%</span></div>
+        </div>
+    </div>
+    
+    <div class="review-container">
+        <div class="loader-container" id="loading">
+            <div class="loader"></div>
+            <p>Loading your review...</p>
+        </div>
+        
+        <div id="no-questions" class="no-content" style="display:none">
+            <p>You didn't answer any questions incorrectly. Great job!</p>
+            <button id="back-btn" class="btn primary-btn">Back to Levels</button>
+        </div>
+        
+        <div id="questions-container" class="questions-list" style="display:none">
+            <!-- Questions will be added here dynamically -->
+        </div>
+        
+        <div class="action-buttons">
+            <button id="retry-btn" class="btn primary-btn">Retry Level</button>
+            <a href="{% url "home" %}"><button id="back-btn" class="btn secondary-btn">Back to Levels</button></a>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block extra_js %}
+<script>
+    window.URLS = {
+        home: "{% url "home" %}",
+        level: "{% url "quiz" %}"
+    };
+</script>
+<script src="{% static "js/progress-service.js" %}"></script>
+<script src="{% static "js/review.js" %}"></script>
+{% endblock extra_js %}

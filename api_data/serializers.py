@@ -15,10 +15,20 @@ class AnswerSerializer(serializers.ModelSerializer):
 class QuestionSerializer(serializers.ModelSerializer):
     answers = AnswerSerializer(many=True)
     level_details = LevelSerializer(source='level', read_only=True)
+    sound_file_url = serializers.SerializerMethodField()
 
     class Meta:
         model = Question
-        fields = ['id','word','pronunciation', 'sound_file','level', 'level_details','answers']
+        fields = ['id','word','pronunciation', 'sound_file', 'sound_file_url','level', 'level_details','answers']
+
+    def get_sound_file_url(self, obj):
+        """คืนค่า URL เต็มของไฟล์เสียง"""
+        if obj.sound_file and obj.sound_file.url:
+            request = self.context.get('request')
+            if request:
+                return request.build_absolute_uri(obj.sound_file.url)
+            return obj.sound_file.url
+        return None
     def create(self, validated_data):
         answer_data = validated_data.pop('answers')
         question = Question.objects.create(**validated_data)

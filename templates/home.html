@@ -85,9 +85,10 @@
 
     {% block extra_js %}
     <script>
-        window.URLS = {
-            'level': '{% url "quiz" %}', 
-        };
+            window.URLS = {
+                level: "{% url 'quiz' %}",  // ควรเป็น URL ไปยังหน้า level
+                review: "{% url 'review' %}"  // ควรเป็น URL ไปยังหน้า review
+            };
     </script>
     <script src="{% static "js/home.js" %}"></script>
     {% endblock extra_js %}

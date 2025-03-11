@@ -159,3 +159,39 @@ body {
         transform: rotate(1turn)
     }
 }
+
+.sound-button {
+    background: var(--pink);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: all 0.3s var(--animation-timing);
+    vertical-align: middle;
+}
+
+.sound-button:hover {
+    transform: scale(1.1);
+    background: var(--navy-blue);
+}
+
+.sound-button i {
+    font-size: 20px;
+}
+
+/* สำหรับการแสดงสถานะกำลังเล่น */
+.sound-button.playing {
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
+}

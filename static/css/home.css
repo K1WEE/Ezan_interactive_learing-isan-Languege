@@ -3,6 +3,8 @@
     --pink: #FF7BAC;
     --cream: #FFF3E0;
     --gray: #666666;
+    --success-green: #4CAF50;
+    --error-red: #dc3545;
     --animation-timing: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -209,12 +211,34 @@ header .image-text .header-text {
 
 .levels-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
+    flex-direction: column;  
+    align-items: center;     
+    gap: 40px;               
     padding: 20px 0;
     max-width: 800px;
     margin: 0 auto;
+}
+
+.level-name {
+    color: white;
+    font-size: 18px;
+    max-width: 100%;
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+    padding: 0 5px;
+    margin-bottom: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.level-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 140px;
+    margin: 10px;
 }
 
 .level-button {
@@ -235,7 +259,7 @@ header .image-text .header-text {
     border: none;
 }
 
-.level-button:hover {
+.level-button:hover:not(.locked) {
     transform: translateY(-5px);
     box-shadow: 0 12px 20px rgba(255, 123, 172, 0.4);
 }
@@ -249,6 +273,45 @@ header .image-text .header-text {
 .level-button.current {
     outline: 4px solid white;
     outline-offset: 4px;
+}
+
+.level-button.completed {
+    position: relative;
+}
+
+.level-button.completed.passed {
+    background: var(--success-green);
+    box-shadow: 0 8px 16px rgba(76, 175, 80, 0.3);
+}
+
+.level-button.completed:not(.passed) {
+    background: var(--error-red);
+    box-shadow: 0 8px 16px rgba(220, 53, 69, 0.3);
+}
+
+.progress-indicator {
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: white;
+    font-weight: bold;
+    background: var(--navy-blue);
+    border: 3px solid white;
+}
+
+.progress-indicator.passed {
+    background: var(--success-green);
+}
+
+.progress-indicator.failed {
+    background: var(--error-red);
 }
 
 .start-button {
@@ -268,5 +331,56 @@ header .image-text .header-text {
 }
 
 .start-button:hover {
-    transform: translateY(-50%);
+    transform: translateY(-50%) translateX(5px);
+    background-color: white;
+}
+
+.review-button {
+    background: var(--navy-blue);
+    border: 2px solid red;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    width: 100px;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.review-button:hover {
+    background: var(--pink);
+    transform: translateY(-2px);
+}
+
+/* Loading spinner */
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    margin: 20px auto;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: var(--pink);
+    animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.no-levels, .error {
+    color: white;
+    text-align: center;
+    margin: 40px 0;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
 }

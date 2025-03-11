@@ -25,6 +25,11 @@ def login_view(request):
         else :
             messages.error(request, 'Invalid username or password')
             return redirect('login')
+    
+    social_error = request.GET.get('error', None)
+    if social_error:
+        messages.error(request, f'เกิดข้อผิดพลาดในการเข้าสู่ระบบด้วย Google: {social_error}')
+    
     return render(request, 'accounts/login.html')
 
 def register_view(request):

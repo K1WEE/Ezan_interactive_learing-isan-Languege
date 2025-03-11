@@ -32,6 +32,12 @@ class QuestionViewSet(viewsets.ModelViewSet):
 
 class QuestionsByLevelView(ListAPIView):
     serializer_class = QuestionSerializer
+    
+    def get_serializer_context(self):
+        """เพิ่ม request ใน context"""
+        context = super().get_serializer_context()
+        return context
+    
     def get_queryset(self):
         level_id = self.kwargs.get('level_id')
         return Question.objects.filter(level=level_id)

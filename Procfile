@@ -1,1 +1,1 @@
-web: gunicorn ezan_project.wsgi
+web: gunicorn ezan_project.wsgi --log-file -

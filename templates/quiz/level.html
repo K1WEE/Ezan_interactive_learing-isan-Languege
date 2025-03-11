@@ -2,7 +2,9 @@
 {% load static %}
 
 {% block extra_css %}
+<link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
 <link href="{% static "css/level.css" %}" rel="stylesheet">
+
 {% endblock extra_css %}
 
 {% block title %}
@@ -32,7 +34,7 @@ Beginner Stage: Level 1 {{user}}
 {% block extra_js %}
 <script>
     window.playerName = "{{ user.username }}";
-    window.URLS = {% url "home" %};
+    window.URLS = "{% url "home" %}";
 </script>
 
 <script src="{% static "js/level.js" %}"></script>

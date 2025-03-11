@@ -1,23 +1,28 @@
+# ใน api_data/permissions.py
+
 from rest_framework import permissions
 
-class IsSuperuserOrReadOnly(permissions.BasePermission):
+class IsAuthenticatedAjaxOrAdmin(permissions.BasePermission):
     """
-    อนุญาตให้ superuser เท่านั้นที่สามารถแก้ไขข้อมูลได้ (POST, PUT, DELETE)
-    ส่วนการอ่านข้อมูล (GET) ต้องล็อกอินแล้วเท่านั้น
+    อนุญาตให้เข้าถึง API ได้เฉพาะกรณีที่:
+    1. เป็น admin/superuser
+    2. เป็น AJAX request จาก JavaScript ในเว็บไซต์
     """
     def has_permission(self, request, view):
         # ต้อง authenticate ก่อนเสมอ
         if not request.user.is_authenticated:
             return False
         
-        is_ajax = request.headers.get('X-Requested-With') == 'XMLHttpRequest' # post only javascript requests
-            
-        # อนุญาตให้ดูข้อมูลได้ (GET, HEAD, OPTIONS) หากล็อกอินแล้ว
-        if request.method in permissions.SAFE_METHODS:
-            return True
-
-        if request.method == 'POST' and is_ajax:
+        # admin/superuser สามารถเข้าถึงได้ทุกประเภท request
+        if request.user.is_superuser or request.user.is_staff:
             return True
             
-        # สำหรับการแก้ไข อนุญาตเฉพาะ superuser
-        return request.user.is_superuser
+        # ตรวจสอบว่าเป็น AJAX request หรือไม่
+        is_ajax = request.headers.get('X-Requested-With') == 'XMLHttpRequest'
+        
+        # อนุญาตให้ดูข้อมูลได้ (GET) หากเป็น AJAX request
+        if request.method in permissions.SAFE_METHODS and is_ajax:
+            return True
+            
+        # สำหรับการแก้ไข (POST, PUT, DELETE) ต้องเป็น AJAX request
+        return request.method == 'POST' and is_ajax

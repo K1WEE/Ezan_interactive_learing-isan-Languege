@@ -47,17 +47,21 @@ INSTALLED_APPS = [
     'users',
     'rest_framework',
     'api_data',
+    'progress',
+    'social_django',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # ต้องอยู่หลัง SecurityMiddleware
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'api_data.middleware.APIAccessMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'ezan_project.urls'
@@ -73,6 +77,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends', 
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -84,7 +90,6 @@ WSGI_APPLICATION = 'ezan_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-# Use Railway's DATABASE_URL environment variable if available
 DATABASE_URL = os.environ.get("DATABASE_URL")
 if DATABASE_URL:
     DATABASES = {
@@ -123,6 +128,11 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+AUTHENTICATION_BACKENDS = [
+    'social_core.backends.google.GoogleOAuth2',  # สำหรับ Google OAuth
+    'django.contrib.auth.backends.ModelBackend',  # สำหรับการ login แบบปกติ
+]
+
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
@@ -143,7 +153,7 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 STATIC_ROOT = BASE_DIR / "staticfiles"
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'  # เปลี่ยนเป็น CompressedStaticFilesStorage ซึ่งเรียบง่ายกว่า
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage' 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -157,12 +167,12 @@ LOGIN_URL = 'login'
 
 # Media files (uploads)
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / "media"
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# REST Framework Settings
+#REST Framework Settings
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
-        'api_data.permissions.IsSuperuserOrReadOnly',  
+        'api_data.permissions.IsSuperuserOrReadOnly',    
     ],
     'DEFAULT_PARSER_CLASSES': [
         'rest_framework.parsers.JSONParser',
@@ -171,15 +181,42 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.SessionAuthentication',
-        'rest_framework.authentication.BasicAuthentication',
     ],
 }
 
 # สำหรับ Railway CSRF_TRUSTED_ORIGINS
 CSRF_TRUSTED_ORIGINS = ["https://ezan-ezan.up.railway.app"]
 
-# เพิ่มการตั้งค่าความปลอดภัย
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-SESSION_COOKIE_SECURE = not DEBUG
-CSRF_COOKIE_SECURE = not DEBUG
-SECURE_SSL_REDIRECT = not DEBUG
+# Google OAuth2 settings
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '149355313649-87e6bda5ikj2fnqr8mpsog8uolea0dd2.apps.googleusercontent.com'  # ใส่ Client ID จาก Google Developer Console
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'  # ใส่ Client Secret จาก Google Developer Console
+
+# URL สำหรับ redirect หลังจาก login สำเร็จ
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = 'home'
+SOCIAL_AUTH_LOGIN_ERROR_URL = 'login'
+
+# กำหนดให้ social auth ขอสิทธิ์อะไรบ้างจาก Google
+SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = [
+    'https://www.googleapis.com/auth/userinfo.email',
+    'https://www.googleapis.com/auth/userinfo.profile',
+]
+
+# กำหนดฟิลด์ที่ต้องการจาก Google
+SOCIAL_AUTH_GOOGLE_OAUTH2_AUTH_EXTRA_ARGUMENTS = {
+    'access_type': 'online',
+}
+
+# Pipeline สำหรับประมวลผลข้อมูลผู้ใช้
+SOCIAL_AUTH_PIPELINE = (
+    'social_core.pipeline.social_auth.social_details',
+    'social_core.pipeline.social_auth.social_uid',
+    'social_core.pipeline.social_auth.auth_allowed',
+    'social_core.pipeline.social_auth.social_user',
+    'social_core.pipeline.user.get_username',
+    'social_core.pipeline.social_auth.associate_by_email',  # เชื่อมโยงกับบัญชีที่มีอยู่แล้วโดยใช้อีเมล
+    'social_core.pipeline.user.create_user',
+    'social_core.pipeline.social_auth.associate_user',
+    'social_core.pipeline.social_auth.load_extra_data',
+    'social_core.pipeline.user.user_details',
+    'users.pipeline.set_user_first_name',  # Pipeline ที่เราจะสร้างเอง
+)
