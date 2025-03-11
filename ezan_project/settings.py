@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(',')
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'ezan-ezan.up.railway.app']
 
 
 # Application definition
@@ -211,4 +211,4 @@ SOCIAL_AUTH_PIPELINE = (
     'users.pipeline.set_user_first_name',  # Pipeline ที่เราจะสร้างเอง
 )
 
-CSRF_TRUSTED_ORIGINS = [f"https://{host}" for host in os.environ.get('ALLOWED_HOSTS', '').split(',') if host]
+CSRF_TRUSTED_ORIGINS = ['https://ezan-ezan.up.railway.app']
