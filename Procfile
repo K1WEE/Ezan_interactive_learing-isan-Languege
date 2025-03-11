@@ -1,1 +1,1 @@
-web: gunicorn ezan_project.wsgi --log-file -
+web: mkdir -p staticfiles && python manage.py collectstatic --noinput && gunicorn ezan_project.wsgi
