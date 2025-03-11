@@ -1,8 +1,0 @@
-django==5.1.6
-python-dotenv
-dj-database-url
-psycopg2-binary
-social-auth-app-django
-djangorestframework
-whitenoise
-gunicorn

@@ -1,1 +1,0 @@
-web: gunicorn ezan_project.wsgi
