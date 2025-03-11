@@ -187,6 +187,12 @@ REST_FRAMEWORK = {
 # สำหรับ Railway CSRF_TRUSTED_ORIGINS
 CSRF_TRUSTED_ORIGINS = ["https://ezan-ezan.up.railway.app"]
 
+# เพิ่มการตั้งค่าความปลอดภัย
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SESSION_COOKIE_SECURE = not DEBUG
+CSRF_COOKIE_SECURE = not DEBUG
+SECURE_SSL_REDIRECT = not DEBUG
+
 # Google OAuth2 settings
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '149355313649-87e6bda5ikj2fnqr8mpsog8uolea0dd2.apps.googleusercontent.com'  # ใส่ Client ID จาก Google Developer Console
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'  # ใส่ Client Secret จาก Google Developer Console
