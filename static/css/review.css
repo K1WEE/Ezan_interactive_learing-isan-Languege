@@ -95,19 +95,59 @@ body {
     color: var(--navy-blue);
 }
 
+/* questions-list styling */
 .questions-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-bottom: 30px;
+    display: block;
 }
 
+/* Target each direct child of questions-list */
+.questions-list > * {
+    margin-bottom: 25px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+/* Remove border */
+.questions-list > *:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+/* Style for the number column */
+.question-number {
+    background-color: var(--pink);
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    padding: 15px 10px;
+    margin-right: 15px;
+    border-radius: 8px 0 0 8px;
+}
+
+/* Make sure question content has proper padding */
+.question-content {
+    padding: 15px;
+    flex: 1;
+}
+
+/* Styling for the question word */
+.question-word {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: var(--navy-blue);
+}
+
+/* Make question card more distinct */
 .question-card {
     display: flex;
     background-color: white;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    transition: transform 0.2s ease;
+    margin-bottom: 25px;
 }
 
 .question-number {
@@ -155,7 +195,7 @@ body {
 .action-buttons {
     display: flex;
     justify-content: center;
-    gap: a0px;
+    gap: 10px;
     margin-top: 30px;
 }
 

@@ -193,21 +193,40 @@ class UserProgressViewSet(viewsets.ModelViewSet):
     
     @action(detail=False, methods=['get'])
     def incorrect_questions(self, request):
-        """Get questions that the user answered incorrectly"""
+        """Get questions that the user answered incorrectly in their most recent attempt"""
         logger.info(f"Incorrect questions requested by user: {request.user.username}")
         user = request.user
         level_id = request.query_params.get('level_id')
         
-        query = Q(user=user, is_correct=False)
+        base_query = Q(user=user)
         if level_id:
-            query &= Q(question__level_id=level_id)
+            base_query &= Q(question__level_id=level_id)
             logger.debug(f"Filtering by level ID: {level_id}")
         
-        # Get distinct questions answered incorrectly
-        question_ids = QuestionAttempt.objects.filter(query).values_list('question_id', flat=True).distinct()
-        logger.debug(f"Found {len(question_ids)} distinct incorrect questions")
+        # Get all question IDs attempted by the user for this level
+        all_attempted_question_ids = QuestionAttempt.objects.filter(
+            base_query
+        ).values_list('question_id', flat=True).distinct()
+        logger.debug(f"Total distinct questions attempted: {len(all_attempted_question_ids)}")
         
-        questions = Question.objects.filter(id__in=question_ids)
+        # Find incorrectly answered questions based on the most recent attempt
+        incorrect_question_ids = []
+        
+        for question_id in all_attempted_question_ids:
+            # Get the most recent attempt for this question
+            latest_attempt = QuestionAttempt.objects.filter(
+                user=user,
+                question_id=question_id
+            ).order_by('-attempt_date').first()
+            
+            # If the most recent attempt is incorrect, add to our list
+            if latest_attempt and not latest_attempt.is_correct:
+                incorrect_question_ids.append(question_id)
+        
+        logger.debug(f"Found {len(incorrect_question_ids)} questions with incorrect latest attempts")
+        
+        # Fetch the full question objects
+        questions = Question.objects.filter(id__in=incorrect_question_ids)
         
         from api_data.serializers import QuestionSerializer
         serializer = QuestionSerializer(questions, many=True)
