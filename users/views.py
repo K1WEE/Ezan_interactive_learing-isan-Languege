@@ -40,8 +40,12 @@ def register_view(request):
         
         if form.is_valid():
             user = form.save()
-            #  auto login
-            login(request, user)
+            user_auth = authenticate(
+                                    request, 
+                                    username=user.username,
+                                    password=request.POST['password1'],
+                                )
+            login(request, user_auth)
             messages.success(request, 'สร้างบัญชีสำเร็จ!')
             request.session.set_expiry(1800)
             return redirect('home')
