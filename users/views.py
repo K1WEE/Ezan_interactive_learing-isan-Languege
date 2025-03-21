@@ -116,3 +116,7 @@ def change_password(request):
 
 def learn_view(request):
     return render(request, 'learn.html')
+
+@login_required
+def flashcard_view(request):
+    return render(request, 'quiz/flashcard.html')

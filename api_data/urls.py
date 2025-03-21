@@ -18,10 +18,11 @@ router = DefaultRouterWithoutBrowsableAPI()
 router.register(r'scores', ScoreViewSet)
 router.register(r'questions', QuestionViewSet)
 router.register(r'levels', LevelViewSet)
+router.register(r'vocabulary', VocabularyViewSet)  
 
 urlpatterns = [
     path('', include(router.urls)),
     path('questions/level/<int:level_id>/', QuestionsByLevelView.as_view(), name='questions-by-level'),
-    # ลบหรือจำกัดการเข้าถึง browsable API
+    path('questions/level/<int:level_id>/', QuestionsByLevelView.as_view(), name='questions-by-level'),
     # path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]  # ลบวงเล็บปิดที่ซ้ำตรงนี้

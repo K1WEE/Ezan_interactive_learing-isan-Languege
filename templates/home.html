@@ -9,6 +9,7 @@
 
     {% block extra_css %}
     <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
+    <link href="{% static "css/floating-button-style.css" %}" rel="stylesheet">
     <link href="{% static "css/home.css" %}" rel="stylesheet">
     {% endblock extra_css %}
     
@@ -81,6 +82,10 @@
             <!-- Levels will be dynamically generated -->
         </div>
     </section>
+    <a href="{% url 'flashcard' %}" class="floating-btn">
+        <i class="bx bx-card"></i>
+        <span class="floating-btn-tooltip">Flashcards to review vocabulary</span>
+    </a>
     {% endblock content %}
 
     {% block extra_js %}

@@ -1,4 +1,4 @@
-from rest_framework import viewsets
+from rest_framework import viewsets,filters
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.generics import ListAPIView
@@ -6,6 +6,24 @@ from rest_framework.parsers import MultiPartParser,FormParser,JSONParser
 from .models import *
 from .serializers import *
 from .serializers import ScoreSerializer
+
+class VocabularyViewSet(viewsets.ReadOnlyModelViewSet):
+    """ViewSet สำหรับแสดงข้อมูลคำศัพท์"""
+    queryset = Vocabulary.objects.all()
+    serializer_class = VocabularySerializer
+    filter_backends = [filters.SearchFilter, filters.OrderingFilter]
+    search_fields = ['word', 'pronunciation', 'thai_translation', 'english_translation', 'category']
+    ordering_fields = ['word', 'category']
+    
+    def get_queryset(self):
+        queryset = Vocabulary.objects.all()
+        
+        # กรองตามหมวดหมู่
+        category = self.request.query_params.get('category', None)
+        if category:
+            queryset = queryset.filter(category=category)
+        
+        return queryset
 
 
 class LevelViewSet(viewsets.ModelViewSet):

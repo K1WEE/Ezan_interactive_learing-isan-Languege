@@ -29,3 +29,11 @@ class ScoreAdmin(admin.ModelAdmin):
     list_display = ['player_name', 'score', 'max_score', 'level', 'created_at']
     list_filter = ['level', 'created_at']
     search_fields = ['player_name']
+
+
+@admin.register(Vocabulary)
+class VocabularyAdmin(admin.ModelAdmin):
+    list_display = ('word', 'pronunciation', 'thai_translation', 'english_translation', 'category')
+    list_filter = ('category',)
+    search_fields = ('word', 'pronunciation', 'thai_translation', 'english_translation')
+    ordering = ('category', 'word')

@@ -155,3 +155,30 @@ body {
         padding: 16px;
     }
 }
+
+.circle-logo-container {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.auth-logo {
+    width: 150%;
+    height: auto;
+    position: absolute;
+    top: 5%;
+    left: -10%;
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+.auth-logo:hover {
+    transform: scale(1.2);
+}

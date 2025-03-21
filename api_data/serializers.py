@@ -1,6 +1,21 @@
 from rest_framework import serializers
-from .models import Level,Answer,Question,Score
+from .models import Level,Answer,Question,Score,Vocabulary
 
+class VocabularySerializer(serializers.ModelSerializer):
+    sound_file_url = serializers.SerializerMethodField()
+    
+    class Meta:
+        model = Vocabulary
+        fields = ['id', 'word', 'pronunciation', 'thai_translation', 'english_translation', 'category', 'sound_file', 'sound_file_url']
+    
+    def get_sound_file_url(self, obj):
+        """คืนค่า URL เต็มของไฟล์เสียง"""
+        if obj.sound_file and obj.sound_file.url:
+            request = self.context.get('request')
+            if request:
+                return request.build_absolute_uri(obj.sound_file.url)
+            return obj.sound_file.url
+        return None
 
 class LevelSerializer(serializers.ModelSerializer):
     class Meta:

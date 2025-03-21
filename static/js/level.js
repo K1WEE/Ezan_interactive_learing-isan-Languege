@@ -30,7 +30,7 @@ function getCookie(name) {
 // fetch json api 
 async function fetchQuestions() {
     // แสดงสถานะกำลังโหลด
-    questionElement.innerHTML = '<div class="loading-message">กำลังโหลดคำถาม...</div>';
+    questionElement.innerHTML = '<div class="loading-message">Loading questions...</div>';
     
     try {
         // ใช้ URL parameter ก่อน localStorage
@@ -45,7 +45,7 @@ async function fetchQuestions() {
         
         if (!levelId) {
             console.error('No level ID found');
-            questionElement.innerHTML = "Error: ไม่พบข้อมูลด่าน โปรดกลับไปที่หน้าหลักและเลือกด่านใหม่";
+            questionElement.innerHTML = "Error: Level information not found. Please return to the main page and select a new level.";
             return;
         }
         
@@ -81,19 +81,19 @@ async function fetchQuestions() {
         if (questions && questions.length > 0) {
             startQuiz();
         } else {
-            questionElement.innerHTML = "ไม่พบคำถามสำหรับด่านนี้ กรุณาตรวจสอบว่ามีคำถามในฐานข้อมูลหรือไม่";
+            questionElement.innerHTML = "No questions found for this level. Please check if there are any questions in the database.";
         }
     } catch (error) {
         if (error.name === 'AbortError') {
             console.error('Fetch timeout, request took too long');
-            questionElement.innerHTML = "การโหลดข้อมูลใช้เวลานานเกินไป โปรดลองใหม่อีกครั้ง";
+            questionElement.innerHTML = "Loading data took too long. Please try again.";
         } else {
             console.error('Error fetching questions:', error);
-            questionElement.innerHTML = `ไม่สามารถโหลดคำถามได้: ${error.message}`;
+            questionElement.innerHTML = `Unable to load questions: ${error.message}`;
         }
         
         // แสดงปุ่มกลับหน้าหลัก
-        nextButton.innerHTML = "กลับหน้าหลัก";
+        nextButton.innerHTML = "Return to home";
         nextButton.style.display = "block";
     }
 }
@@ -132,7 +132,7 @@ function showQuestion() {
     // ตรวจสอบว่า currentQuestion มีอยู่จริง
     if (!currentQuestion) {
         console.error('Current question is undefined', { currentQuestionIndex, questions });
-        questionElement.innerHTML = "พบข้อผิดพลาดในการแสดงคำถาม";
+        questionElement.innerHTML = "There was an error in displaying the question.";
         return;
     }
     
@@ -170,7 +170,7 @@ function showQuestion() {
         });
     } else {
         console.error('No answers found for question', currentQuestion);
-        answerButtons.innerHTML = "<p>ไม่พบตัวเลือกคำตอบสำหรับคำถามนี้</p>";
+        answerButtons.innerHTML = "<p>No answer options found for this question.</p>";
     }
     
     // เพิ่ม event listener สำหรับปุ่มเล่นเสียง
@@ -280,7 +280,7 @@ function showScore() {
         }
     }
     
-    nextButton.innerHTML = "Back to Home";
+    nextButton.innerHTML = "Return to Home";
     nextButton.style.display = "block";
 }
 
@@ -456,7 +456,7 @@ document.addEventListener('DOMContentLoaded', function() {
         };
         script.onerror = function() {
             console.error('Failed to load progress service script');
-            questionElement.innerHTML = "ไม่สามารถโหลด script ได้ กรุณารีเฟรชหน้าเว็บ";
+            questionElement.innerHTML = "Unable to load script. Please refresh the page.";
             // ยังคงพยายามโหลดคำถามแม้ว่า progress service จะไม่ทำงาน
             fetchQuestions();
         };

@@ -157,7 +157,7 @@ function setupEventListeners() {
             
             if (!levelId) {
                 console.error('No level ID found in button data attribute');
-                alert('เกิดข้อผิดพลาด: ไม่พบข้อมูลด่าน กรุณาลองใหม่อีกครั้ง');
+                alert('An error occurred: No checkpoint information found. Please try again.');
                 return;
             }
             
