@@ -49,10 +49,10 @@ async function fetchQuestions() {
             return;
         }
         
-        // บันทึกลง localStorage เพื่อใช้ในการทำงานต่อไป
+        // บันทึกลง localStorage
         localStorage.setItem('currentLevelId', levelId);
         
-        // กำหนด timeout สำหรับการ fetch
+        // กำหนด timeout
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 วินาที timeout
         
@@ -92,7 +92,6 @@ async function fetchQuestions() {
             questionElement.innerHTML = `Unable to load questions: ${error.message}`;
         }
         
-        // แสดงปุ่มกลับหน้าหลัก
         nextButton.innerHTML = "Return to home";
         nextButton.style.display = "block";
     }
@@ -129,7 +128,7 @@ function showQuestion() {
     resetState();
     let currentQuestion = questions[currentQuestionIndex];
     
-    // ตรวจสอบว่า currentQuestion มีอยู่จริง
+    // ตรวจสอบว่า currentQuestion มีอยู่
     if (!currentQuestion) {
         console.error('Current question is undefined', { currentQuestionIndex, questions });
         questionElement.innerHTML = "There was an error in displaying the question.";
@@ -140,7 +139,7 @@ function showQuestion() {
     
     let questionHTML = `${questionNo}. ${currentQuestion.word} <span class="pronunciation">(${currentQuestion.pronunciation})</span>`;
     
-    // เพิ่มปุ่มเล่นเสียงถ้ามีไฟล์เสียง
+    // เพิ่มปุ่มเล่นเสียง
     if (currentQuestion.sound_file_url) {
         questionHTML += `
             <button class="sound-button" data-sound="${currentQuestion.sound_file_url}" type="button">
@@ -173,7 +172,7 @@ function showQuestion() {
         answerButtons.innerHTML = "<p>No answer options found for this question.</p>";
     }
     
-    // เพิ่ม event listener สำหรับปุ่มเล่นเสียง
+    // เพิ่ม event listener ปุ่มเล่นเสียง
     setupSoundButtons();
 }
 
@@ -249,7 +248,6 @@ function showScore() {
     if (!progressSubmitted) {
         console.log("Attempting to submit progress...");
         
-        // Method 1: Using progressService (if available)
         if (window.progressService) {
             console.log("Using progressService to submit quiz");
             progressService.submitQuiz()
@@ -264,7 +262,6 @@ function showScore() {
                         nextLevelMsg.innerHTML = 'You unlocked the next level!';
                         document.querySelector('.quiz').appendChild(nextLevelMsg);
                         
-                        // เพิ่มส่วนนี้: รีเฟรชข้อมูลระดับหลังจากส่งคะแนนสำเร็จ
                         refreshLevelData(result);
                     }
                 })
@@ -274,7 +271,6 @@ function showScore() {
                     submitDirectly(score, questions.length, levelId);
                 });
         } else {
-            // Method 2: Direct submission if progressService not available
             console.log("progressService not available, using direct submission");
             submitDirectly(score, questions.length, levelId);
         }
@@ -287,16 +283,16 @@ function showScore() {
 function refreshLevelData(result) {
     console.log("Refreshing level data after quiz submission");
     
-    // เพิ่มตัวแสดงการโหลด
+    // เพิ่ม loading
     const loadingIndicator = document.createElement('div');
     loadingIndicator.className = 'loading-spinner';
     loadingIndicator.id = 'refresh-spinner';
     document.querySelector('.quiz').appendChild(loadingIndicator);
     
-    // ตั้งค่า timeout เพื่อให้แน่ใจว่าข้อมูลในฐานข้อมูลถูกอัปเดตแล้ว
+    // ตั้งค่า timeout
     setTimeout(() => {
         if (window.progressService) {
-            // เรียกให้ progressService รีเฟรชข้อมูล (ปรับปรุงใน progress-service.js)
+            // เรียกให้ progressService รีเฟรชข้อมูล
             progressService.refreshLevelData()
                 .then(() => {
                     console.log("Level data refreshed successfully");
@@ -304,7 +300,7 @@ function refreshLevelData(result) {
                     const spinner = document.getElementById('refresh-spinner');
                     if (spinner) spinner.remove();
                     
-                    // เพิ่มปุ่มไปยังระดับถัดไป (ถ้ามี)
+                    // เพิ่มปุ่ม level ถัดไป
                     if (result && result.has_passed && result.next_level_id) {
                         const nextLevelBtn = document.createElement('button');
                         nextLevelBtn.className = 'btn';
@@ -312,9 +308,8 @@ function refreshLevelData(result) {
                         nextLevelBtn.style.marginTop = '20px';
                         nextLevelBtn.innerHTML = 'Go to Next Level';
                         nextLevelBtn.addEventListener('click', () => {
-                            // เก็บ ID ระดับถัดไปใน localStorage
+                            // เก็บ ID level ถัดไปใน localStorage
                             localStorage.setItem('currentLevelId', result.next_level_id);
-                            // นำทางไปยังหน้า quiz พร้อมกับ level ID ใหม่
                             const levelUrl = (typeof window.URLS === 'string') ? 
                                 `${window.URLS}?level=${result.next_level_id}` : 
                                 `/quiz/?level=${result.next_level_id}`;
@@ -325,15 +320,14 @@ function refreshLevelData(result) {
                 })
                 .catch(err => {
                     console.error("Error refreshing level data:", err);
-                    // ลบตัวแสดงการโหลดในกรณีที่เกิดข้อผิดพลาด
                     const spinner = document.getElementById('refresh-spinner');
                     if (spinner) spinner.remove();
                 });
         }
-    }, 1500); // รอ 1.5 วินาทีเพื่อให้แน่ใจว่าฐานข้อมูลถูกอัปเดตแล้ว
+    }, 1500); // รอ 1.5 วิ
 }
 
-// ปรับปรุงฟังก์ชัน submitDirectly
+// แก้ submitDirectly
 function submitDirectly(score, totalQuestions, levelId) {
     console.log("Submitting directly with:", {
         levelId: levelId,
@@ -372,7 +366,6 @@ function submitDirectly(score, totalQuestions, levelId) {
             nextLevelMsg.innerHTML = 'You unlocked the next level!';
             document.querySelector('.quiz').appendChild(nextLevelMsg);
             
-            // เพิ่มส่วนนี้: รีเฟรชข้อมูลระดับหลังจากส่งคะแนนสำเร็จ
             refreshLevelData(data);
         }
     })
@@ -436,18 +429,18 @@ nextButton.addEventListener("click", () => {
     }
 });
 
-// เพิ่มการโหลด progress service และเริ่มการทำงาน
+// เพิ่มการโหลด progress service
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM fully loaded');
     
-    // ตรวจสอบว่ามี progress service หรือไม่
+    // ตรวจสอบว่ามี progress service
     if (window.progressService) {
         console.log('Progress service found, fetching questions...');
         fetchQuestions();
     } else {
         console.log('Progress service not found, loading script...');
         
-        // สร้าง script tag เพื่อโหลด progress-service.js
+        // สร้าง script tag โหลด progress-service.js
         const script = document.createElement('script');
         script.src = '/static/js/progress-service.js';
         script.onload = function() {
@@ -457,7 +450,6 @@ document.addEventListener('DOMContentLoaded', function() {
         script.onerror = function() {
             console.error('Failed to load progress service script');
             questionElement.innerHTML = "Unable to load script. Please refresh the page.";
-            // ยังคงพยายามโหลดคำถามแม้ว่า progress service จะไม่ทำงาน
             fetchQuestions();
         };
         
@@ -472,24 +464,21 @@ function setupSoundButtons() {
 }
 
 function playQuestionSound(e) {
-    e.preventDefault(); // ป้องกันการ submit form
-    e.stopPropagation(); // ป้องกันไม่ให้ event ทำงานซ้อนกัน
+    e.preventDefault(); // กัน submit form
+    e.stopPropagation(); // กันไม่ให้ event ทำงานซ้อนกัน
     
     const button = e.currentTarget;
     const soundUrl = button.dataset.sound;
     
     if (soundUrl) {
-        // เพิ่ม class playing ให้ปุ่มเพื่อแสดงว่ากำลังเล่นเสียง
         button.classList.add('playing');
         
         const audio = new Audio(soundUrl);
         
-        // เมื่อเสียงเล่นจบ ลบ class playing ออก
         audio.onended = function() {
             button.classList.remove('playing');
         };
         
-        // เมื่อเกิดข้อผิดพลาด ลบ class playing ออกเช่นกัน
         audio.onerror = function() {
             console.error('Error playing sound');
             button.classList.remove('playing');

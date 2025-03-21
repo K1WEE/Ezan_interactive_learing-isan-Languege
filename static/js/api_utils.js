@@ -23,7 +23,7 @@ async function fetchAPI(url, options = {}) {
         credentials: 'same-origin',  // ส่ง cookies
         headers: {
             'Content-Type': 'application/json',
-            'X-Requested-With': 'XMLHttpRequest',  // บ่งชี้ว่าเป็น AJAX request
+            'X-Requested-With': 'XMLHttpRequest',  // บอกว่าเป็น AJAX request
             'X-CSRFToken': csrftoken
         }
     };

@@ -235,7 +235,7 @@ function showCard(index) {
                 <div class="card-front">
                     <h2>${word.word}</h2>
                     <p class="pronunciation">(${word.pronunciation})</p>
-                    <button class="flip-btn">ดูคำแปล</button>
+                    <button class="flip-btn">See translation</button>
                 </div>
                 <div class="card-back">
                     <div class="translation">

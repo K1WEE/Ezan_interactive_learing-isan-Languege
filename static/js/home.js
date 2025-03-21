@@ -24,7 +24,6 @@ async function initializeLevels() {
         // Fetch user progress from the API
         const levels = await progressService.initLevelProgress();
         
-        // เก็บข้อมูลระดับไว้ใช้ภายหลัง
         currentLevels = levels;
         
         console.log("Fetched levels:", levels);
@@ -34,10 +33,9 @@ async function initializeLevels() {
             return;
         }
         
-        // หาระดับที่ปลดล็อกล่าสุด (ด้วยเลขระดับสูงสุด)
         let highestUnlockedLevel = levels.filter(level => level.is_unlocked)
             .sort((a, b) => {
-                // ใช้ number จาก level object หรือ level_details ถ้ามี
+                // ใช้ number จาก level object
                 const aNum = a.number || (a.level_details && a.level_details.number) || 0;
                 const bNum = b.number || (b.level_details && b.level_details.number) || 0;
                 return bNum - aNum; // เรียงจากมากไปน้อย
@@ -45,7 +43,7 @@ async function initializeLevels() {
         
         console.log("Highest unlocked level:", highestUnlockedLevel);
         
-        // ถ้าไม่พบระดับที่ปลดล็อก ใช้ระดับแรก
+        // ถ้าไม่พบ level ที่ปลดล็อก ใช้ level แรก
         const currentLevel = highestUnlockedLevel || levels[0];
         
         // อัปเดต subtitle
@@ -68,10 +66,9 @@ async function initializeLevels() {
 function updateProgressSubtitle(currentLevel) {
     const progressSubtitle = document.querySelector('.progress-subtitle');
     if (progressSubtitle && currentLevel) {
-        // แสดงข้อมูลให้เห็นในคอนโซล
         console.log("Updating subtitle with level:", currentLevel);
         
-        // ดึงข้อมูล level name และ number
+        // ดึงข้อมูล level name, number
         const levelName = currentLevel.level_details?.name || 
                          currentLevel.name || 
                          'Beginner';
@@ -190,26 +187,25 @@ function setupEventListeners() {
         }
     });
     
-    // เพิ่ม event listener สำหรับการฟังเหตุการณ์การอัปเดตสถานะระดับ
+    // เพิ่ม event listener สำหรับการฟังเหตุการณ์การอัปเดตสถานะ level
     window.addEventListener('levelStatusChanged', function(e) {
         console.log('Level status changed event received:', e.detail);
-        // รีเฟรชข้อมูลระดับเมื่อมีการเปลี่ยนแปลงสถานะ
         initializeLevels();
     });
 }
 
-// เพิ่มฟังก์ชันสำหรับอัปเดตสถานะระดับเฉพาะตัว (ไม่ต้องโหลดใหม่ทั้งหมด)
+// เพิ่มฟังก์ชันสำหรับอัปเดตสถานะ level
 function updateLevelStatus(levelId, newStatus) {
     console.log(`Updating level ${levelId} with new status:`, newStatus);
     
-    // หาระดับที่ต้องการอัปเดต
+    // หา level ที่ต้องการ
     const levelElement = document.querySelector(`.level-item[data-level-id="${levelId}"]`);
     if (!levelElement) {
         console.warn(`Level element with ID ${levelId} not found`);
         return;
     }
     
-    // อัปเดตสถานะการปลดล็อก
+    // อัปเดตสถานะปลดล็อก
     if (newStatus.is_unlocked !== undefined) {
         const button = levelElement.querySelector('.level-button');
         if (newStatus.is_unlocked) {
@@ -225,7 +221,7 @@ function updateLevelStatus(levelId, newStatus) {
         if (newStatus.is_completed) {
             button.classList.add('completed');
             
-            // เพิ่มปุ่ม Review ถ้ายังไม่มี
+            // เพิ่มปุ่ม Review
             if (!levelElement.querySelector('.review-button')) {
                 const reviewButton = document.createElement('button');
                 reviewButton.className = 'review-button';
@@ -234,7 +230,7 @@ function updateLevelStatus(levelId, newStatus) {
                 levelElement.appendChild(reviewButton);
             }
             
-            // อัปเดตตัวแสดงความก้าวหน้า
+            // อัปเดต progress
             if (newStatus.percentage_score !== undefined) {
                 let progressIndicator = levelElement.querySelector('.progress-indicator');
                 const progressClass = newStatus.has_passed ? 'passed' : 'failed';
@@ -251,7 +247,6 @@ function updateLevelStatus(levelId, newStatus) {
             }
         } else {
             button.classList.remove('completed');
-            // ลบปุ่ม Review ถ้ามี
             const reviewButton = levelElement.querySelector('.review-button');
             if (reviewButton) {
                 reviewButton.remove();
@@ -260,7 +255,7 @@ function updateLevelStatus(levelId, newStatus) {
     }
 }
 
-// Initialize everything when DOM is loaded
+// Initialize everything
 document.addEventListener('DOMContentLoaded', function() {
     // Load the progress service script
     const script = document.createElement('script');
@@ -270,7 +265,7 @@ document.addEventListener('DOMContentLoaded', function() {
         initializeLevels();
         setupEventListeners();
         
-        // เพิ่มฟังก์ชัน initializeLevels ให้กับ window object เพื่อให้สามารถเรียกใช้จากที่อื่นได้
+        // เพิ่มฟังก์ชัน initializeLevels ให้ window object
         window.initializeLevels = initializeLevels;
         window.updateLevelStatus = updateLevelStatus;
     };

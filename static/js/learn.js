@@ -9,16 +9,15 @@ toggle.addEventListener("click", () => {
 
 // Store the vocabulary data globally so we can access it for sorting and filtering
 let vocabularyData = [];
-// เพิ่มตัวแปรสำหรับแสดงสถานะการโหลด
+// แสดงสถานะการโหลด
 const tableBody = document.querySelector("#data-output");
 
-// แสดงตัวโหลดระหว่างรอข้อมูล
 tableBody.innerHTML = `
     <tr>
         <td colspan="5" style="text-align: center; padding: 40px;">
             <div style="display: inline-block; width: 50px; height: 50px; border: 5px solid #f3f3f3; 
                   border-top: 5px solid #FF7BAC; border-radius: 50%; animation: spin 1s linear infinite;"></div>
-            <p style="margin-top: 20px;">กำลังโหลดข้อมูลคำศัพท์...</p>
+            <p style="margin-top: 20px;">Loading vocabulary...</p>
         </td>
     </tr>
 `;
@@ -50,7 +49,7 @@ fetch('/api/vocabulary/', {
 .then(function (data) {
     console.log('Data loaded from API:', data);
     
-    // แปลงข้อมูลจาก API ให้เข้ากับรูปแบบเดิม
+    // แปลงข้อมูลจาก API
     vocabularyData = data.map(item => ({
         Category: item.category,
         Word: item.word,
@@ -63,7 +62,6 @@ fetch('/api/vocabulary/', {
     // Initial display of all data
     displayVocabulary(vocabularyData);
     
-    // After data is loaded, set up search and sort
     setupSearchAndSort();
 })
 .catch(function(error) {
@@ -72,7 +70,7 @@ fetch('/api/vocabulary/', {
         <tr>
             <td colspan="5" style="text-align: center; padding: 40px; color: #dc3545;">
                 <i class="bx bx-error-circle" style="font-size: 48px;"></i>
-                <p style="margin-top: 20px;">เกิดข้อผิดพลาดในการโหลดข้อมูล</p>
+                <p style="margin-top: 20px;">An error occurred while loading data.</p>
                 <p>${error.message}</p>
                 <button id="retryButton" style="margin-top: 20px; padding: 8px 16px; background-color: #FF7BAC; 
                        color: white; border: none; border-radius: 4px; cursor: pointer;">
@@ -97,13 +95,13 @@ function displayVocabulary(data) {
             <tr>
                 <td colspan="5" style="text-align: center; padding: 40px;">
                     <i class="bx bx-search" style="font-size: 48px; color: #666;"></i>
-                    <p style="margin-top: 20px; color: #666;">ไม่พบคำศัพท์ที่ตรงกับการค้นหา</p>
+                    <p style="margin-top: 20px; color: #666;">No words found that match the search.</p>
                 </td>
             </tr>
         `;
     } else {
         data.forEach(function (vocabulary) {
-            // สร้างปุ่มเล่นเสียงถ้ามีไฟล์เสียง
+            // สร้างปุ่มเล่นเสียง
             let soundButton = '';
             if (vocabulary.SoundFileUrl) {
                 soundButton = `
@@ -129,11 +127,9 @@ function displayVocabulary(data) {
 
     tableBody.innerHTML = out;
     
-    // เพิ่ม event listener สำหรับปุ่มเล่นเสียง
     setupSoundButtons();
 }
 
-// เพิ่มฟังก์ชันสำหรับตั้งค่าปุ่มเล่นเสียง
 function setupSoundButtons() {
     document.querySelectorAll('.sound-button').forEach(button => {
         button.addEventListener('click', function(e) {
@@ -142,17 +138,14 @@ function setupSoundButtons() {
             
             const soundUrl = this.dataset.sound;
             if (soundUrl) {
-                // เพิ่ม class playing ให้ปุ่มเพื่อแสดงว่ากำลังเล่นเสียง
                 this.classList.add('playing');
                 
                 const audio = new Audio(soundUrl);
                 
-                // เมื่อเสียงเล่นจบ ลบ class playing ออก
                 audio.onended = () => {
                     this.classList.remove('playing');
                 };
                 
-                // เมื่อเกิดข้อผิดพลาด ลบ class playing ออกเช่นกัน
                 audio.onerror = () => {
                     console.error('Error playing sound');
                     this.classList.remove('playing');
@@ -204,14 +197,12 @@ function setupSearchAndSort() {
         };
     });
     
-    // ฟังก์ชันสำหรับการใช้ทั้งตัวกรองและการค้นหาพร้อมกัน
     function applyFilters() {
         const searchTerm = search.value.toLowerCase();
         const selectedCategory = categoryFilter ? categoryFilter.value : '';
         
-        // กรองข้อมูลตามเงื่อนไขทั้งหมด
+        // กรองข้อมูลตามเงื่อนไข
         const filteredData = vocabularyData.filter(item => {
-            // เงื่อนไขการค้นหา
             const matchesSearch = 
                 searchTerm === '' || 
                 item.Category.toLowerCase().includes(searchTerm) ||
@@ -220,38 +211,31 @@ function setupSearchAndSort() {
                 item.Thai.toLowerCase().includes(searchTerm) ||
                 item.Eng.toLowerCase().includes(searchTerm);
             
-            // เงื่อนไขการกรองตามหมวดหมู่
             const matchesCategory = 
                 selectedCategory === '' || 
                 item.Category === selectedCategory;
             
-            // ต้องตรงตามเงื่อนไขทั้งหมด
             return matchesSearch && matchesCategory;
         });
         
-        // แสดงผลลัพธ์
         displayVocabulary(filteredData);
         
-        // Apply alternating row background for better readability
+        // Apply alternating row background
         document.querySelectorAll("tbody tr").forEach((row, i) => {
             row.style.backgroundColor = (i % 2 === 0) ? "transparent" : "#0000000b";
-            // Add animation delay for smoother appearance
+            // Add animation delay
             row.style.setProperty("--delay", i / 25 + "s");
         });
     }
 }
 
-// ไม่จำเป็นต้องใช้ฟังก์ชัน searchVocabulary อีกต่อไป เนื่องจากถูกแทนด้วย applyFilters ในฟังก์ชัน setupSearchAndSort แล้ว
-// แต่เราจะเก็บไว้เพื่อความเข้ากันได้กับโค้ดเดิม
 function searchVocabulary(searchTerm) {
     const categoryFilter = document.getElementById("category-filter");
     const selectedCategory = categoryFilter ? categoryFilter.value : '';
     
     searchTerm = searchTerm.toLowerCase();
     
-    // กรองข้อมูลตามเงื่อนไขทั้งหมด
     const filteredData = vocabularyData.filter(item => {
-        // เงื่อนไขการค้นหา
         const matchesSearch = 
             searchTerm === '' || 
             item.Category.toLowerCase().includes(searchTerm) ||
@@ -260,29 +244,27 @@ function searchVocabulary(searchTerm) {
             item.Thai.toLowerCase().includes(searchTerm) ||
             item.Eng.toLowerCase().includes(searchTerm);
         
-        // เงื่อนไขการกรองตามหมวดหมู่
         const matchesCategory = 
             selectedCategory === '' || 
             item.Category === selectedCategory;
         
-        // ต้องตรงตามเงื่อนไขทั้งหมด
         return matchesSearch && matchesCategory;
     });
     
     // Display filtered data
     displayVocabulary(filteredData);
     
-    // Apply alternating row background for better readability
+    // Apply alternating row background
     document.querySelectorAll("tbody tr").forEach((row, i) => {
         row.style.backgroundColor = (i % 2 === 0) ? "transparent" : "#0000000b";
-        // Add animation delay for smoother appearance
+        // Add animation delay
         row.style.setProperty("--delay", i / 25 + "s");
     });
 }
 
 // Sort function that sorts the data and redisplays
 function sortVocabulary(columnIndex, ascending) {
-    // Map column index to property name
+    // Map column index
     const propertyMap = {
         0: "Category",
         1: "Word",

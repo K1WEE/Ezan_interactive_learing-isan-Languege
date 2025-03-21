@@ -5,7 +5,7 @@ class ProgressService {
         this.apiBaseUrl = '/api/progress/';
         this.quizAnswers = [];
         this.currentLevel = null;
-        this.levelsData = null; // เพิ่มตัวแปรเก็บข้อมูลระดับ
+        this.levelsData = null; // ตัวแปรเก็บข้อมูล level
         console.log('ProgressService initialized');
     }
 
@@ -28,7 +28,7 @@ class ProgressService {
 
             const levels = await response.json();
             console.log('Fetched levels data:', levels);
-            this.levelsData = levels; // เก็บข้อมูลระดับไว้ใช้ภายใน service
+            this.levelsData = levels; // เก็บข้อมูล level ไว้ใช้ภายใน service
             return levels;
         } catch (error) {
             console.error('Error fetching level progress:', error);
@@ -97,7 +97,7 @@ class ProgressService {
             // Reset answers after submission
             this.quizAnswers = [];
             
-            // เพิ่มข้อมูลระดับถัดไป (ถ้ามี)
+            // เพิ่มข้อมูล level ถัดไป
             if (result.has_passed && this.levelsData) {
                 const currentLevelIndex = this.levelsData.findIndex(level => level.id == this.currentLevel);
                 if (currentLevelIndex >= 0 && currentLevelIndex < this.levelsData.length - 1) {
@@ -114,18 +114,18 @@ class ProgressService {
         }
     }
 
-    // รีเฟรชข้อมูลระดับหลังจากส่ง quiz
+    // รีเฟรชข้อมูล level หลังจากส่ง quiz
     async refreshLevelData() {
         console.log('Refreshing level data...');
         try {
-            // ดึงข้อมูลระดับใหม่
+            // ดึงข้อมูล level ใหม่
             const levels = await this.initLevelProgress();
             
-            // ตรวจสอบว่ามีการปลดล็อกระดับใหม่หรือไม่
+            // ตรวจสอบว่ามีการปลดล็อก lvel ใหม่
             const unlockedLevels = levels.filter(level => level.is_unlocked);
             console.log(`Found ${unlockedLevels.length} unlocked levels after refresh`);
             
-            // อัปเดตข้อมูลระดับในหน้าแสดงความก้าวหน้า (ถ้าอยู่ในหน้านั้น)
+            // อัปเดตข้อมูล lvel
             if (window.initializeLevels) {
                 window.initializeLevels();
                 console.log('Re-initialized levels display');

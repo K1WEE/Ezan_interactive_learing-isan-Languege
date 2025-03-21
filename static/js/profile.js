@@ -75,7 +75,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Form submit handler
     document.querySelector('.profile-info').addEventListener('submit', function(e) {
         if (!editingFields.first_name && !editingFields.email) {
-            // If no fields are being edited, prevent form submission
             e.preventDefault();
             return;
         }

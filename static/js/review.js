@@ -39,7 +39,7 @@ async function initReview() {
     console.log("Initializing review for level:", levelId);
     
     try {
-        // Fetch from base API endpoint which we now know works
+        // Fetch from base API endpoint
         const response = await fetch(`/api/progress/`, {
             method: 'GET',
             headers: {
@@ -57,7 +57,7 @@ async function initReview() {
         const allProgress = await response.json();
         console.log("All progress data:", allProgress);
         
-        // ค้นหาข้อมูลของ level ที่ต้องการ
+        // ค้นหาข้อมูล level ที่ต้องการ
         const levelProgress = allProgress.find(progress => 
             progress.level == levelId || progress.level_details?.id == levelId
         );
@@ -83,7 +83,7 @@ async function initReview() {
     }
 }
 
-// Load incorrect questions directly using fetch instead of progressService
+// Load incorrect questions directly
 async function loadIncorrectQuestions(levelId) {
     try {
         console.log("Loading incorrect questions for level:", levelId);
@@ -175,7 +175,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Retry button
     retryButton.addEventListener('click', function() {
         console.log("Retry button clicked. Level ID:", levelId);
-        // Set level in progress service or localStorage
         localStorage.setItem('currentLevelId', levelId);
         
         // Navigate to quiz page
