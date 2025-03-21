@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'ezan-larbkoy.up.railway.app']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'ezan-ezan.up.railway.app']
 
 
 # Application definition
@@ -215,10 +215,10 @@ SOCIAL_AUTH_PIPELINE = (
 SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
 
 # กำหนด callback URL แบบชัดเจน
-SOCIAL_AUTH_GOOGLE_OAUTH2_REDIRECT_URI = 'https://ezan-larbkoy.up.railway.app/social-auth/complete/google-oauth2/'
+SOCIAL_AUTH_GOOGLE_OAUTH2_REDIRECT_URI = 'https://ezan-ezan.up.railway.app/social-auth/complete/google-oauth2/'
 
 
 
 
 
-CSRF_TRUSTED_ORIGINS = ['https://ezan-larbkoy.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://ezan-ezan.up.railway.app']
