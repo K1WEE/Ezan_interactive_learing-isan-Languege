@@ -25,6 +25,28 @@
     {% endblock content %}
 
     <script src="{% static 'js/api_utils.js' %}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const messages = document.querySelectorAll('.alert, .error-message, .messages .message');
+            
+            if (messages.length > 0) {
+                setTimeout(() => {
+                    messages.forEach(message => {
+                        // เริ่มการเฟดเอาท์
+                        message.style.opacity = '0';
+                        message.style.transition = 'opacity 0.5s ease';
+                        
+                        // ลบข้อความหลังจากเฟดเอาท์เสร็จ
+                        setTimeout(() => {
+                            message.style.display = 'none';
+                        }, 500);
+                    });
+                }, 5000); // 5 วินาที
+            }
+        });
+    </script>
+    {% block extra_js %}
+    {% endblock extra_js %}
     {% block extra_js %}
     {% endblock extra_js %}
 </body>
