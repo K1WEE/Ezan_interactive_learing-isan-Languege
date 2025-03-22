@@ -14,7 +14,7 @@ class APIAccessMiddleware:
             # ถ้าไม่ใช่ AJAX request และไม่ใช่ admin ให้ปฏิเสธการเข้าถึง
             if not is_ajax and not is_admin:
                 from django.http import HttpResponseForbidden
-                return HttpResponseForbidden("API เข้าถึงได้เฉพาะจาก JavaScript หรือผู้ดูแลระบบเท่านั้น")
+                return HttpResponseForbidden("The API is accessible only from JavaScript or only.")
         
         response = self.get_response(request)
         return response
